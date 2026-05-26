@@ -215,6 +215,40 @@
         .feeling-warn { font-size: 0.8375rem; color: var(--grey); line-height: 1.7; }
         .feeling-warn strong { color: #fca5a5; }
 
+        /* ── VERBOTEN-BOX ────────────────────────────── */
+        .forbidden-box {
+            background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.35);
+            border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem;
+        }
+        .forbidden-header {
+            display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+        }
+        .forbidden-header [data-lucide] { width: 22px; height: 22px; color: #fca5a5; flex-shrink: 0; }
+        .forbidden-header h3 { font-size: 1rem; font-weight: 700; color: #fca5a5; }
+        .forbidden-header span { font-size: 0.8rem; color: rgba(252,165,165,0.6); font-weight: 400; margin-left: 0.5rem; }
+        .forbidden-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.875rem; }
+        .forbidden-item {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            background: rgba(239,68,68,0.05); border-left: 3px solid rgba(239,68,68,0.4);
+            border-radius: 0 6px 6px 0; padding: 0.75rem 1rem;
+        }
+        .forbidden-item [data-lucide] { width: 16px; height: 16px; color: #fca5a5; flex-shrink: 0; margin-top: 0.1rem; }
+        .forbidden-item-text strong { display: block; font-size: 0.875rem; color: var(--white); font-weight: 600; margin-bottom: 0.15rem; }
+        .forbidden-item-text span { font-size: 0.8rem; color: var(--grey); line-height: 1.5; }
+        @media (max-width: 600px) { .forbidden-grid { grid-template-columns: 1fr; } }
+
+        /* ── CONTROLS-BOX ────────────────────────────── */
+        .controls-box {
+            margin-top: 1rem; background: rgba(245,158,11,0.05);
+            border: 1px solid rgba(245,158,11,0.18); border-radius: 8px;
+            padding: 1rem 1.25rem;
+        }
+        .controls-box-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 0.625rem; }
+        .controls-list { list-style: none; }
+        .controls-list li { font-size: 0.84rem; color: var(--grey); padding: 0.275rem 0 0.275rem 1.1rem; position: relative; line-height: 1.55; }
+        .controls-list li::before { content: '→'; position: absolute; left: 0; color: var(--amber); font-size: 0.68rem; top: 0.4rem; }
+        .controls-list li strong { color: var(--white); }
+
         /* ── KONTRAINDIKATIONEN ──────────────────────── */
         .contra-wrap {
             background: rgba(239,68,68,0.05); border-left: 3px solid rgba(239,68,68,0.5);
@@ -441,7 +475,7 @@
                 <div class="step-num">1</div>
                 <div class="step-body">
                     <div class="step-title">Vorbereitung</div>
-                    <div class="step-desc">Trinke vor der Session ausreichend Wasser. Trage <strong>bequeme, weiche Kleidung</strong> ohne Metallverschlüsse, Gürtel oder harte Knöpfe. Entferne Schmuck, Uhren und Hörgeräte. Verzichte 2–3 Stunden vorher auf schwere Mahlzeiten.</div>
+                    <div class="step-desc">Trinke vor der Session ausreichend Wasser. Trage <strong>bequeme Kleidung aus Baumwolle</strong> – keine Metallverschlüsse, keine Synthetikfasern, keine Wolle. <strong>Keine Schuhe</strong> – barfuß oder in Socken in die Kammer. Entferne Schmuck, Uhren, Piercings und Hörgeräte. Trage <strong>keine Öle, Cremes, Parfüm oder Haarspray</strong> – diese sind in sauerstoffreicher Umgebung feuergefährlich. Verzichte 2–3 Stunden vorher auf schwere Mahlzeiten.</div>
                 </div>
             </div>
             <div class="step">
@@ -449,13 +483,22 @@
                 <div class="step-body">
                     <div class="step-title">Einsteigen &amp; Einrichten</div>
                     <div class="step-desc">Die Betreuungsperson öffnet die Kammer und begleitet dich beim Einsteigen. Du nimmst auf dem <strong>Sitzelement in der Kammer</strong> Platz. Die Sauerstoffmaske wird angelegt und auf korrekten Sitz geprüft. Dann wird die Kammertür geschlossen.</div>
+                    <div class="controls-box">
+                        <div class="controls-box-label">Bedienelemente in der Kammer</div>
+                        <ul class="controls-list">
+                            <li><strong>Inneres Druckablassventil (roter Griff/Knopf)</strong> — damit kannst du den Druck jederzeit selbst kontrolliert ablassen und die Kammer öffnen. Im Notfall immer verfügbar.</li>
+                            <li><strong>Manometer (Druckanzeige)</strong> — zeigt den aktuellen Kammerdruck in ATA an. Du kannst jederzeit ablesen, wo du gerade stehst.</li>
+                            <li><strong>Sichtfenster</strong> — die Betreuungsperson beobachtet dich von außen durchgehend. Handzeichen reichen zur Kommunikation.</li>
+                            <li><strong>Externe Steuerung</strong> — Kompressor, Druckregelung und Sauerstoffkonzentrator werden ausschließlich von außen bedient.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <div class="step-body">
                     <div class="step-title">Druckaufbau (Kompression)</div>
-                    <div class="step-desc">Der Kompressor startet und baut langsam Druck auf – ca. 8–10 Minuten. Du wirst ein <strong>Druckgefühl in den Ohren</strong> spüren, genau wie beim Starten oder Landen im Flugzeug. Gleiche es aktiv aus: <strong>schlucken, gähnen</strong> oder Nase zuhalten und sanft pressen (Valsalva-Manöver).</div>
+                    <div class="step-desc">Der Kompressor startet und baut den Druck in ca. <strong>8–10 Minuten</strong> schrittweise auf den Zieldruck auf. Du hörst ein gleichmäßiges Rauschen – das ist normal. Das Manometer in der Kammer zeigt dir den steigenden Druck.<br><br>Du wirst ein <strong>Druckgefühl in den Ohren</strong> spüren – genau wie beim Starten im Flugzeug oder beim Tauchen. <strong>Gleiche sofort aus, sobald du es spürst</strong> – warte nicht bis es wehtut:<br>· <strong>Schlucken</strong> — einfachste Methode, wirkt meist sofort<br>· <strong>Gähnen</strong> — öffnet die Eustachische Röhre natürlich<br>· <strong>Valsalva-Manöver</strong> — Nase zuhalten, Mund schließen, sanft pressen als würdest du ausatmen<br><br>Wenn der Ausgleich nicht klappt, gib der Betreuungsperson durch das <strong>Sichtfenster ein Handzeichen</strong>. Der Druckaufbau kann jederzeit pausiert oder abgebrochen werden.</div>
                 </div>
             </div>
             <div class="step">
@@ -469,7 +512,7 @@
                 <div class="step-num">5</div>
                 <div class="step-body">
                     <div class="step-title">Dekompression &amp; Aussteigen</div>
-                    <div class="step-desc">Der Druck wird über ca. 8–10 Minuten langsam abgebaut. Erneut ein leichtes Ohrenknacken – das ist normal. <strong>Warte bis der Druck vollständig auf Normaldruck gefallen ist</strong>, bevor die Kammer geöffnet wird. Danach gut trinken und kurz entspannen.</div>
+                    <div class="step-desc">Am Ende der Therapiephase wird der Druck über ca. <strong>8–10 Minuten</strong> kontrolliert abgebaut. Die Luft strömt über ein Ventil nach außen – du hörst ein leises Zischen und die Temperatur in der Kammer sinkt leicht. Das Manometer zeigt den fallenden Druck.<br><br>Erneut spürst du ein leichtes Ohrenknacken – <strong>diesmal passiert der Ausgleich meist automatisch</strong>, du musst aktiv nichts tun. <strong>Öffne die Kammer niemals selbst während der Dekompression</strong> – warte auf das Signal der Betreuungsperson und bis das Manometer Normaldruck (1,0 ATA) anzeigt. Erst dann kann die Tür geöffnet werden. Danach gut trinken und kurz entspannen.</div>
                 </div>
             </div>
         </div>
@@ -622,6 +665,57 @@
         <div class="section-label">Verhalten</div>
         <h2>Während der Sitzung</h2>
         <p class="section-intro">Damit die Session sicher und wirksam verläuft, gibt es ein paar wichtige Regeln – und normale Empfindungen, die du kennen solltest.</p>
+        <div class="forbidden-box">
+            <div class="forbidden-header">
+                <i data-lucide="ban"></i>
+                <h3>Was NICHT in die Kammer darf <span>— zwingend einzuhalten</span></h3>
+            </div>
+            <div class="forbidden-grid">
+                <div class="forbidden-item">
+                    <i data-lucide="smartphone"></i>
+                    <div class="forbidden-item-text">
+                        <strong>Elektronische Geräte</strong>
+                        <span>Handy, Tablet, Smartwatch, Kopfhörer — kein batteriebetriebenes Gerät in der Kammer</span>
+                    </div>
+                </div>
+                <div class="forbidden-item">
+                    <i data-lucide="flame"></i>
+                    <div class="forbidden-item-text">
+                        <strong>Feuer &amp; Zündquellen</strong>
+                        <span>Feuerzeug, Streichhölzer, Kerzen — absolutes Verbot, Brandgefahr in sauerstoffreicher Umgebung</span>
+                    </div>
+                </div>
+                <div class="forbidden-item">
+                    <i data-lucide="spray-can"></i>
+                    <div class="forbidden-item-text">
+                        <strong>Spraydosen &amp; Aerosole</strong>
+                        <span>Haarspray, Deodorant-Spray, Insektenschutz — Druckbehälter und Propellanten verboten</span>
+                    </div>
+                </div>
+                <div class="forbidden-item">
+                    <i data-lucide="droplets"></i>
+                    <div class="forbidden-item-text">
+                        <strong>Öle, Cremes &amp; Parfüm</strong>
+                        <span>Kosmetik, Körperöle, Sonnencreme, Parfüm — alle brennbaren Substanzen auf der Haut entfernen</span>
+                    </div>
+                </div>
+                <div class="forbidden-item">
+                    <i data-lucide="footprints"></i>
+                    <div class="forbidden-item-text">
+                        <strong>Schuhe &amp; festes Schuhwerk</strong>
+                        <span>Barfuß oder Socken — keine Schuhe, keine Stiefel, keine Sandalen mit Metallverschlüssen</span>
+                    </div>
+                </div>
+                <div class="forbidden-item">
+                    <i data-lucide="shirt"></i>
+                    <div class="forbidden-item-text">
+                        <strong>Synthetik- &amp; Wollkleidung</strong>
+                        <span>Kein Polyester, kein Nylon, keine Wolle — nur Baumwolle, da synthetische Fasern statische Entladungen erzeugen können</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="rules-grid">
             <div class="rule-card">
                 <div class="rule-icon"><i data-lucide="wind"></i></div>
